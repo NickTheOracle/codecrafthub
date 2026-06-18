@@ -44,7 +44,7 @@ You should see:
 MyLearnTracker API is starting...
 ============================================================
 Data will be stored in: /path/to/courses.json
-API will be available at: http://localhost:5000
+API will be available at: http://localhost:8000
 ============================================================
 ```
 
@@ -52,7 +52,7 @@ API will be available at: http://localhost:5000
 
 Open a new terminal and try:
 ```bash
-curl http://localhost:5000
+curl http://localhost:8000
 ```
 
 You should see a welcome message with available endpoints.
@@ -63,7 +63,7 @@ You should see a welcome message with available endpoints.
 **GET** `/api/courses`
 
 ```bash
-curl http://localhost:5000/api/courses
+curl http://localhost:8000/api/courses
 ```
 
 **Response:**
@@ -88,14 +88,14 @@ curl http://localhost:5000/api/courses
 **GET** `/api/courses/<id>`
 
 ```bash
-curl http://localhost:5000/api/courses/1
+curl http://localhost:8000/api/courses/1
 ```
 
 ### 3. Add a New Course
 **POST** `/api/courses`
 
 ```bash
-curl -X POST http://localhost:5000/api/courses \
+curl -X POST http://localhost:8000/api/courses \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Python Basics",
@@ -131,7 +131,7 @@ curl -X POST http://localhost:5000/api/courses \
 **PUT** `/api/courses/<id>`
 
 ```bash
-curl -X PUT http://localhost:5000/api/courses/1 \
+curl -X PUT http://localhost:8000/api/courses/1 \
   -H "Content-Type: application/json" \
   -d '{
     "status": "In Progress"
@@ -148,7 +148,7 @@ You can update any of these fields:
 **DELETE** `/api/courses/<id>`
 
 ```bash
-curl -X DELETE http://localhost:5000/api/courses/1
+curl -X DELETE http://localhost:8000/api/courses/1
 ```
 
 ## 🎁 Bonus Features
@@ -157,7 +157,7 @@ curl -X DELETE http://localhost:5000/api/courses/1
 **GET** `/api/courses/stats`
 
 ```bash
-curl http://localhost:5000/api/courses/stats
+curl http://localhost:8000/api/courses/stats
 ```
 
 **Response:**
@@ -177,7 +177,7 @@ curl http://localhost:5000/api/courses/stats
 **GET** `/api/courses/search?q=<search_term>`
 
 ```bash
-curl "http://localhost:5000/api/courses/search?q=python"
+curl "http://localhost:8000/api/courses/search?q=python"
 ```
 
 ## 🧪 Testing with Postman
@@ -185,7 +185,7 @@ curl "http://localhost:5000/api/courses/search?q=python"
 1. Open Postman
 2. Create a new request
 3. Set the method (GET, POST, PUT, DELETE)
-4. Enter the URL (e.g., `http://localhost:5000/api/courses`)
+4. Enter the URL (e.g., `http://localhost:8000/api/courses`)
 5. For POST/PUT, add JSON body in the "Body" tab (select "raw" and "JSON")
 6. Click "Send"
 
@@ -230,7 +230,7 @@ Data is stored in `courses.json` as a simple JSON array:
 
 ### How the API Works
 
-1. **When you start the app:** Flask creates a web server on port 5000
+1. **When you start the app:** Flask creates a web server on port 8000
 2. **When you make a request:** Flask routes it to the right function
 3. **The function:** 
    - Reads `courses.json`
@@ -250,7 +250,7 @@ Data is stored in `courses.json` as a simple JSON array:
 **Solution:** Run `pip install -r requirements.txt`
 
 ### Problem: "Address already in use"
-**Solution:** Another app is using port 5000. Stop it or change the port in `app.py`:
+**Solution:** Another app is using port 8000. Stop it or change the port in `app.py`:
 ```python
 app.run(debug=True, host='0.0.0.0', port=5001)  # Changed to 5001
 ```
